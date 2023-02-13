@@ -1,0 +1,56 @@
+/* ROOT STYLES */
+:root {
+    --primary-color: #8077fe;
+    --secondary-color: #6b63c9;
+    --tertiary-color: #49467d;
+    --black-blue: #383651;
+    --dark-grey: #27242c;
+    --dark-grey50: rgb(39, 36, 44, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--black-blue);
+    line-height: 1.3rem;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+h3, h4, h5, h6, p {
+    font-family: 'Inter', sans-serif;
+}
+
+h3, h4, h5 {
+    font-weight: 500;
+}
+
+h6, p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1rem; 
+}

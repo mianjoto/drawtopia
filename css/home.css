@@ -1,0 +1,76 @@
+body {
+    background-color: var(--tertiary-color);
+}
+.container {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch; */
+    display: grid;
+    grid-template-columns: 100px auto 200px;
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+    background-color: white;
+}
+
+section.tools {
+    display: block;
+    /* width: 400px; */
+    border-right: 2px solid var(--dark-grey);
+}
+
+main.chatroom {
+    display: block;
+    width: 100%;
+    margin: 0 2rem;
+}
+
+section.user-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* width: 600px; */
+    border-left: 2px solid var(--dark-grey);
+}
+
+.chatroom__messages {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.chatroom__messages__message__content {
+    flex-direction: row;
+    align-items: end;
+    display: grid;
+    grid-template-columns: auto 50px;
+    align-items: end;
+    justify-content: start;
+    gap: 10px;
+}
+
+.scribble {
+    display: inline-block;
+    width: 1250px;
+    height: 350px;
+    background-color: var(--primary-color);
+    border: 5px solid var(--secondary-color);
+}
+
+.action {
+    user-select: none;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+.chatroom__messages__message__separator {
+    width: 95%;
+    margin: 0 auto;
+    border-bottom: 3px dotted var(--dark-grey50);
+}
+
+
+.user-list__title {
+    width: 100%;
+    height: fit-content;
+}
