@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "name": "drawtopia",
+  "description": "Drawtopia",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mianjoto/drawtopia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mianjoto/drawtopia/issues"
+  },
+  "homepage": "https://github.com/mianjoto/drawtopia#readme"
+}
