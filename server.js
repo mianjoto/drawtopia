@@ -11,5 +11,4 @@ app.get('/welcome', (req, res) => {
 const chatroomRouter = require('./chatroom')
 app.use('/', chatroomRouter)
 
-
 app.listen(3000)
