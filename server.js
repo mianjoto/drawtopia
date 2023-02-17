@@ -4,10 +4,8 @@ const app = express()
 app.use(express.static("public"))
 app.set("view engine", "ejs")
 
-app.get('/welcome', (req, res) => {
-    res.render("welcome")
-})
-
+const welcomeRouter = require('./welcome')
+app.use('/welcome', welcomeRouter)
 const chatroomRouter = require('./chatroom')
 app.use('/', chatroomRouter)
 
