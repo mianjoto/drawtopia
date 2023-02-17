@@ -5,8 +5,7 @@ app.set("view engine", "ejs")
 
 
 app.get('/', (req, res) => {
-    console.log('Here')
-    res.send('Test')
+    res.render("welcome")
 })
 
 app.listen(3000)
