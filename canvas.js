@@ -21,6 +21,26 @@ toolbar.addEventListener('click', e => {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 
+    if (e.target.id === 'size1') {
+        lineWidth = 5;
+    }
+
+    if (e.target.id === 'size2') {
+        lineWidth = 10;
+    }
+
+    if (e.target.id === 'size3') {
+        lineWidth = 20;
+    }
+
+    if (e.target.id === 'size4') {
+        lineWidth = 30;
+    }
+
+    if (e.target.id === 'size5') {
+        lineWidth = 50;
+    }
+
     if (e.target.id == 'download'){
         imageLink.download = 'canvas.jpg'
         imageLink.href = canvas.toDataURL('image/jpg', 1);
@@ -34,11 +54,6 @@ toolbar.addEventListener('change', e => {
     if(e.target.id === 'stroke') {
         ctx.strokeStyle = e.target.value;
     }
-
-    if(e.target.id === 'lineWidth') {
-        lineWidth = e.target.value;
-    }
-    
 });
 
 const draw = (e) => {
