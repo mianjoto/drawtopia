@@ -1,22 +1,10 @@
 const express = require("express")
+const session = require("express-session")
 const router = express.Router()
 
-router.get("/", requireLogin, (req, res) => {
-    res.render("chatroom")
+router.get("/", (req, res) => {
+    let username = req.session.username;
+    res.render("chatroom", { username })
 })
-
-function requireLogin(req, res, next) {
-    let userLoggedIn = isUserLoggedIn()
-    if (userLoggedIn) {
-        next()
-    } else {
-        res.redirect('/welcome')
-    }
-}
-
-function isUserLoggedIn() {
-    // TODO: Replace with session handling logic
-    return false
-}
 
 module.exports = router
