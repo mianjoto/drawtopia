@@ -14,6 +14,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Inter:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        module.exports = {
+        mode:
+        purge: [],
+        darkMode: false, // or 'media' or 'class'
+        theme: {
+          extend: {},
+          colors: {
+            'primblue': '#8077fe',
+            '2ndblue': '#6b63c9',
+            '3rdblue': '#49467d',
+            'blackblue': '#383651',
+            'darkgrey': '#27242c',
+          }
+        },
+        variants: {
+          extend: {},
+        },
+        plugins: [],
+      }
+  
+      </script>
+
     <title>Drawtopia - {SERVERNAME}</title>
 </head>
 <body>
@@ -67,10 +92,14 @@
         </main>
         <section class="user-list">
             <h4 class="user-list__title">In the room now:</h4>
+            <br>
             <div class="user-list__members">
                 <p class="user-list__members__member">Anonymoose</p>
+                <br>
                 <p class="user-list__members__member">Sneaky_cat</p>
+                <br>
                 <p class="user-list__members__member">Vagabond</p>
+                <br>
                 <p class="user-list__members__member">Solid Snek</p>
             </div>
         </section>
