@@ -1,7 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html{
   text-align: center;
   font-family: 'IBM Plex Sans';
 }
+
 header,form {
   position: absolute;
   font-weight: bold;
@@ -12,13 +17,12 @@ header,form {
 
 img{ /*"Drawtopia logo" */
   position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 15%;
+  /* left: 50%; */
 }
+
 h1, h2{
   font-family: 'Inter';
-
 }
  h3 ,h4 ,h5 ,h6{ /*"welcome to above the logo" */
   text-align: center;
@@ -26,28 +30,19 @@ h1, h2{
   color: #27242c;
   top: 5%;
   left: 50%;
-  font-size: 50px;
+  font-size: 100px;
   font-family: 'IBM Plex Sans';
   transform: translate(-50%, -50%);
 }
+
+title{
+  font-size: xx-large;
+}
+
 
 body{
   background-color: #49467d;
   text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
   padding: 15%;
   font-size: large;
-}
-
-button{
-  background-color: #6b63c9;
-  color: white;
-  padding: 15px 128px;
-  font-family: 'IBM Plex Sans';
-  font-weight: 600;
-  text-align: left;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 10px;
 }
