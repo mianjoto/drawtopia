@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
 /* ROOT STYLES */
 :root {
     --primary-color: #8077fe;
@@ -6,6 +12,7 @@
     --black-blue: #383651;
     --dark-grey: #27242c;
     --dark-grey50: rgb(39, 36, 44, 0.5);
+    --white-color: #ffffff; 
 }
 
 * {
@@ -13,11 +20,11 @@
     margin: 0;
     padding: 0;
 }
-
+/*'Inter', sans-serif;*/
 h1, h2 {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    color: var(--black-blue);
+    color: var(--dark-grey);
     line-height: 1.3rem;
 }
 
@@ -54,3 +61,7 @@ h4 {
 h5 {
     font-size: 1rem; 
 }
+
+body{
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+  }
