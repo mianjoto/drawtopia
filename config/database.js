@@ -1,11 +1,14 @@
 const Sequelize = require('sequelize')
+const dotenv = require('node-env-file')
+
+let env = dotenv('./.env')
 
 const sequelize = new Sequelize(
-    'testDB',
-    'root',
-    '1234', {
+    env.DATA_BASE_NAME,
+    env.DATA_BASE_USER,
+    env.DATA_BASE_PASSWORD, {
         dialect: 'mysql',        
-        host: 'localhost'
+        host: env.DATA_BASE_HOST
     }
 );
 
