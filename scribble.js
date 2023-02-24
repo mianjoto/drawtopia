@@ -1,7 +1,8 @@
 class Scribble{
 
-    constructor(canvas,authorName,geolocation){
+    constructor(canvas, roomId, authorName,geolocation){
         this.canvas = canvas;
+        this.roomId = roomId;
         this.authorName = authorName;
         this.geolocation = geolocation;
     }
@@ -16,6 +17,10 @@ class Scribble{
 
     getCanvas(){
         return this.canvas
+    }
+
+    getRoom(){
+        return this.roomId;
     }
 
 }
