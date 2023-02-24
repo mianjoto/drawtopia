@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="welcome-page-base-html.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans">
+
+    <!-- tailwind shit just to keep everything in one place-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      module.exports = {
+      mode:
+      purge: [],
+      darkMode: false, // or 'media' or 'class'
+      theme: {
+        extend: {},
+        colors: {
+          'primblue': '#8077fe',
+          '2ndblue': '#6b63c9',
+          '3rdblue': '#49467d',
+          'blackblue': '#383651',
+          'darkgrey': '#27242c',
+        }
+      },
+      variants: {
+        extend: {},
+      },
+      plugins: [],
+    }
+
+    </script>
+
+    <!-- just in case -->
+    <!-- <script src=".js"></script> -->
+    
+  </head>
+  <body class="bg-primaryblue">
+    <h3>Welcome to</h3>
+    <!-- <img src="logo.png" alt="logo" class="center"> -->
+      <div class="flex justify-center items-center h-screen">
+        <img src="logo.png" alt="logo" class="opacity-0 transform translate-y-2/3">
+      </div>
+      
+    <!-- add to js file later -->
+    <script>
+      const image = document.querySelector('img');
+
+      setTimeout(() => {
+        image.classList.add('opacity-100', 'translate-y-0', 'transition', 'duration-1000', 'ease-in-out');
+      }, 125);
+    </script>
+
+
+    <form action="chatroom.html">
+      <label for="name">Enter your Screen Name:</label>
+      <input type="text" id="name" name="name" required>
+      <br><br>
+      <label>Here's what we found in your area</label>
+      <br><br>
+      <button type="submit" name="room" class="bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" value="room1">{ SERVERNAME } </button><br><br>
+      <button type="submit" name="room1" class="bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" value="room2">{SERVERNAME1}</button><br><br>
+      <button type="submit" name="room2" class="bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" value="room3">{SERVERNAME2}</button><br><br>
+    </form>
+    <style>
+      .btn {
+        @apply font-bold py-2 px-4 rounded;
+      }
+      .btn-blue {
+        @apply bg-blue-500 text-white;
+      }
+      .btn-blue:hover {
+        @apply bg-blue-700;
+      }
+    </style>
+  </body>
+</html>
