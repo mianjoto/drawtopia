@@ -1,7 +1,7 @@
 const express = require("express")
 const session = require('express-session')
-const welcomeRouter = require('./welcome')
-const chatroomRouter = require('./chatroom')
+const welcomeRouter = require('./routes/welcome')
+const chatroomRouter = require('./routes/chatroom')
 const dotenv = require('node-env-file')
 const bodyParser = require('body-parser')
 
