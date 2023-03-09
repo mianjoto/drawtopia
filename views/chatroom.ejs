@@ -5,8 +5,105 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
+
+    <!--  note: I removed the /public/ on file locations bc they were not loading on my pc. adding them back using ctrl f if needed-->
+    <!-- STYLESHEETS note: I removed the /public/ on file locations bc they -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/chatroom.css">
+    
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Inter:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        module.exports = {
+        purge: [],
+        darkMode: false, // or 'media' or 'class'
+        theme: {
+          extend: {},
+          colors: {
+            'primblue': '#8077fe',
+            '2ndblue': '#6b63c9',
+            '3rdblue': '#49467d',
+            'blackblue': '#383651',
+            'darkgrey': '#27242c',
+          }
+        },
+        variants: {
+          extend: {},
+        },
+        plugins: [],
+      }
+  
+      </script>
+
+    <title>Drawtopia - {SERVERNAME}</title>
 </head>
 <body>
-    <h1>IN THE CHATROOM!!!</h1>
+    <div class="container">
+        <section class="tools"></section>
+        <main class="chatroom">
+            <section class="chatroom__messages">
+                <div class="chatroom__messages__message">
+                    <div class="chatroom__messages__message__username">
+                        <h2>Vagabond</h2>
+                    </div>
+                    <div class="chatroom__messages__message__content">
+                        <div class="scribble"></div>
+                        <a class="action" href="#">
+                            <h2>📤</h2>
+                        </a>
+                        <span class="chatroom__messages__message__separator"></span>
+                    </div>
+
+                </div>
+                <div class="chatroom__messages__message">
+                    <div class="chatroom__messages__message__username">
+                        <h2>Vagabond</h2>
+                    </div>
+                    <div class="chatroom__messages__message__content">
+                        <div class="scribble"></div>
+                        <a class="action" href="#">
+                            <h2>📤</h2>
+                        </a>
+                        <span class="chatroom__messages__message__separator"></span>
+                    </div>
+
+                </div>
+                <div class="chatroom__messages__message">
+                    <div class="chatroom__messages__message__username">
+                        <h2>Vagabond</h2>
+                    </div>
+                    <div class="chatroom__messages__message__content">
+                        <div class="scribble"></div>
+                        <a class="action" href="#">
+                            <h2>📤</h2>
+                        </a>
+                        <span class="chatroom__messages__message__separator"></span>
+                    </div>
+
+                </div>
+            </section>
+            <section class="chatroom__canvas">
+    
+            </section>
+        </main>
+        <section class="user-list">
+            <h4 class="user-list__title">In the room now:</h4>
+            <br>
+            <div class="user-list__members">
+                <p class="user-list__members__member">Anonymoose</p>
+                <br>
+                <p class="user-list__members__member">Sneaky_cat</p>
+                <br>
+                <p class="user-list__members__member">Vagabond</p>
+                <br>
+                <p class="user-list__members__member">Solid Snek</p>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
