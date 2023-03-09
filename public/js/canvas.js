@@ -1,12 +1,15 @@
-const canvas = document.getElementById('drawing-board');
+const canvasContainer = document.getElementById('canvas-container');
+const canvas = document.getElementById('canvas');
 const toolbar = document.getElementById('toolbar');
 const ctx = canvas.getContext('2d');
 const imageLink = document.createElement('a');
 const byteSize = str => new Blob([str]).size;
 
+const scribbleWidth = 625;
+const scribbleHeight = 175;
+const scribbleRatio = scribbleWidth / scribbleHeight;
 
-canvas.width = 1250;
-canvas.height = 350;
+console.log("ratio=" + scribbleRatio)
 
 let color = "black";
 let isPainting = false;
@@ -15,9 +18,31 @@ let lineWidth = 5;
 let undo_array = [];
 let index = -1;
 
+console.log("Canvas container offset width: " + canvasContainer.offsetWidth);
+console.log("Canvas container offset height: " + canvasContainer.offsetHeight);
+const targetCanvasContainerHeight = canvasContainer.offsetWidth / scribbleRatio;
+
+console.log("Given current width " + canvasContainer.offsetWidth + ", target height will be " + targetCanvasContainerHeight)
+canvasContainer.offsetHeight = targetCanvasContainerHeight;
+
+canvas.width = canvasContainer.offsetWidth;
+canvas.height = targetCanvasContainerHeight;
+
+// calculate the scaling factor
+const scaleX = canvas.offsetWidth / scribbleWidth;
+const scaleY = canvas.offsetHeight / scribbleHeight;
+
+console.log("scalex = " + scaleX)
+console.log("scaley = " + scaleY)
+
+// adjust the context's scale
+ctx.scale(scaleX, scaleY);
+
+// reset the context's translation
+ctx.translate(0, 0);
 
 ctx.fillStyle = "white";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
 
 
 canvas.addEventListener("mousedown", start);
@@ -32,19 +57,20 @@ canvas.addEventListener("touchend", stop);
 toolbar.addEventListener("change", changecolor);
 toolbar.addEventListener("click", clickEventHandler);
 
-
 function start(event){
     isPainting = true;
+    const rect = canvas.getBoundingClientRect();
     ctx.beginPath()
-    ctx.moveTo(event.clientX - canvas.offsetLeft, 
-               event.clientY - canvas.offsetTop);
+    ctx.moveTo((event.clientX - rect.left) / scaleX, 
+               (event.clientY - rect.top) / scaleY);
     event.preventDefault();
 }
 
 function draw(event){
     if(isPainting){
-        ctx.lineTo(event.clientX - canvas.offsetLeft, 
-                   event.clientY - canvas.offsetTop);
+        const rect = canvas.getBoundingClientRect();
+        ctx.lineTo((event.clientX - rect.left) / scaleX, 
+                   (event.clientY - rect.top) / scaleY);
         ctx.lineWidth = lineWidth;
         ctx.lineCap = "round";
         ctx.lineJoin = "round";

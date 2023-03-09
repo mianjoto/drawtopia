@@ -1,3 +1,8 @@
 .message__username>h3 {
     color: var(--black-blue-color) !important;
 }
+
+#canvas {
+    width: 100%;
+    height: 100%;
+}

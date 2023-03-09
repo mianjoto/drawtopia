@@ -4,7 +4,7 @@ const router = express.Router()
 router
     .get('/',(req, res) => {
         if (!usernameIsValid(req.session.username)) {
-            res.render("welcome")
+            res.render("pages/welcome")
         } else {
             res.redirect('/')
         }

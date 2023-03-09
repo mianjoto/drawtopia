@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
     if (!username) {
         res.redirect('/welcome')
     } else {
-        res.render("chatroom", { username })
+        res.render("pages/chatroom", { username : username })
     }
 })
 
