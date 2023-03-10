@@ -2,6 +2,7 @@ const canvasContainer = document.getElementById('canvas-container');
 const canvas = document.getElementById('canvas');
 const toolbar = document.getElementById('toolbar');
 const ctx = canvas.getContext('2d');
+const sendMessageButton = document.getElementById('send')
 const imageLink = document.createElement('a');
 const byteSize = str => new Blob([str]).size;
 
@@ -56,6 +57,8 @@ canvas.addEventListener("touchend", stop);
 
 toolbar.addEventListener("change", changecolor);
 toolbar.addEventListener("click", clickEventHandler);
+
+sendMessageButton.addEventListener("click", sendMessage)
 
 function start(event){
     isPainting = true;
@@ -154,4 +157,13 @@ function clickEventHandler(event){
          console.log(imageLink.href);
          console.log(byteSize(imageLink.href));
     }
+}
+
+function sendMessage(event) {
+    if (!imageLink) return;
+
+    imageLink.href = canvas.toDataURL('image/jpg', 1);
+    imageLink.click();
+    // Sending message to chat logic
+    console.log(imageLink.href)
 }

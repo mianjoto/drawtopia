@@ -45,7 +45,7 @@
 <body class="overflow-hidden">
   <div class="h-screen w-screen divide-x-4 grid grid-cols-[minmax(50px,_1fr)_minmax(350px,_4fr)_minmax(50px,_1fr)] grid-rows-1">
     <section id="toolbar-window">
-      <div id="toolbar-container" class="h-full flex flex-col justify-end items-end flex-1 pr-3 pb-5">
+      <div id="toolbar" class="h-full flex flex-col justify-end items-end flex-1 pr-3 pb-5">
         <a id="pen" class="toolbar-icon mt-auto">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
             <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
@@ -76,10 +76,13 @@
           </header>
         </div>
       </div>
-      <div id="messages-container" class="divide-y-5 h-screen flex flex-col gap-2 overflow-y-scroll no-scrollbar">
+      <div id="messages-container" class="divide-y-5 h-screen flex flex-col gap-2 overflow-y-scroll no-scrollbar relative">
         <%#- include('../partials/message') %>
-        <%- include('../partials/canvas') %>
+        <div class="canvas absolute bottom-14 left-0 w-full">
+          <%- include('../partials/canvas') %>
+        </div>
       </div>
+
     </main>
     <div id="memberlist-window"></div>
   </div>
