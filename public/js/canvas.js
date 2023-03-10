@@ -51,7 +51,7 @@ canvas.addEventListener("mousemove", draw);
 canvas.addEventListener("mouseup", stop);
 canvas.addEventListener("mouseout", stop);
 
-canvas.addEventListener("touchstart", start); 
+canvas.addEventListener("touchstart", start);
 canvas.addEventListener("touchmove", draw);
 canvas.addEventListener("touchend", stop);
 
@@ -60,20 +60,23 @@ toolbar.addEventListener("click", clickEventHandler);
 
 sendMessageButton.addEventListener("click", sendMessage)
 
-function start(event){
+function start(event)
+{
     isPainting = true;
     const rect = canvas.getBoundingClientRect();
     ctx.beginPath()
-    ctx.moveTo((event.clientX - rect.left) / scaleX, 
-               (event.clientY - rect.top) / scaleY);
+    ctx.moveTo((event.clientX - rect.left) / scaleX,
+        (event.clientY - rect.top) / scaleY);
     event.preventDefault();
 }
 
-function draw(event){
-    if(isPainting){
+function draw(event)
+{
+    if (isPainting)
+    {
         const rect = canvas.getBoundingClientRect();
-        ctx.lineTo((event.clientX - rect.left) / scaleX, 
-                   (event.clientY - rect.top) / scaleY);
+        ctx.lineTo((event.clientX - rect.left) / scaleX,
+            (event.clientY - rect.top) / scaleY);
         ctx.lineWidth = lineWidth;
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
@@ -83,87 +86,122 @@ function draw(event){
     event.preventDefault();
 }
 
-function stop(event){
-    if(isPainting){
+function stop(event)
+{
+    if (isPainting)
+    {
         ctx.stroke();
         ctx.closePath();
         isPainting = false;
     }
 
     event.preventDefault();
-    if(event.type != "mouseout"){
+    if (event.type != "mouseout")
+    {
         undo_array.push(ctx.getImageData(0, 0, canvas.width, canvas.height))
-        index +=1;
+        index += 1;
     }
 }
 
-function changecolor(event){
+function changecolor(event)
+{
     color = event.target.value;
     ctx.strokeStyle = event.target.value;
 }
 
-function clickEventHandler(event){
+function clickEventHandler(event)
+{
 
-    if(event.target.id === "pen"){
+    if (event.target.id === "pen")
+    {
         ctx.strokeStyle = color;
     }
 
-    if(event.target.id === "size1"){
+    if (event.target.id === "size1")
+    {
         lineWidth = 5;
     }
 
-    if(event.target.id === "size2"){
+    if (event.target.id === "size2")
+    {
         lineWidth = 10;
     }
 
-    if(event.target.id === "size3"){
+    if (event.target.id === "size3")
+    {
         lineWidth = 20;
     }
 
-    if(event.target.id === "size4"){
+    if (event.target.id === "size4")
+    {
         lineWidth = 35;
     }
 
-    if(event.target.id === "size5"){
+    if (event.target.id === "size5")
+    {
         lineWidth = 50;
     }
 
-    if(event.target.id === "eraser"){
+    if (event.target.id === "eraser")
+    {
         ctx.strokeStyle = "white"
     }
 
-    if(event.target.id === "undo"){
-        if(index <= 0){
+    if (event.target.id === "undo")
+    {
+        if (index <= 0)
+        {
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             undo_array = [];
             index = -1;
-        }else {
-            index  -= 1;
+        } else
+        {
+            index -= 1;
             undo_array.pop();
             ctx.putImageData(undo_array[index], 0, 0);
         }
     }
 
-    if(event.target.id === "clear"){
+    if (event.target.id === "clear")
+    {
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         undo_array = [];
         index = -1;
     }
 
-    if(event.target.id === "download"){
-         imageLink.download = 'canvas.jpg'
-         imageLink.href = canvas.toDataURL('image/jpg', 1);
-         imageLink.click();
-         console.log(imageLink.href);
-         console.log(byteSize(imageLink.href));
+    if (event.target.id === "download")
+    {
+        imageLink.download = 'canvas.jpg'
+        imageLink.href = canvas.toDataURL('image/jpg', 1);
+        imageLink.click();
+        console.log(imageLink.href);
+        console.log(byteSize(imageLink.href));
     }
 }
 
-function sendMessage(event) {
+function sendMessage(event)
+{
     if (!imageLink) return;
 
     imageLink.href = canvas.toDataURL('image/jpg', 1);
-    imageLink.click();
-    // Sending message to chat logic
-    console.log(imageLink.href)
+
+    const data = {
+        image: imageLink.href,
+        chatroom: 'myChatroom',
+        author_name: 'John Doe',
+        latitude: 42.1234,
+        longitude: -71.5678,
+    };
+
+    fetch('/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    })
+        .then(res => res.json())
+        .then(data =>
+        {
+            console.log(data.scribble);
+        })
+        .catch(err => console.error(err));
 }
