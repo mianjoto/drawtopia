@@ -2,7 +2,9 @@ const express = require("express")
 const session = require("express-session")
 const router = express.Router()
 
+const sequelize = require('../config/database')
 const Scribble = require('../models/scribble');
+sequelize.sync()
 
 router.get("/", (req, res) => {
     let username = req.session.username;
