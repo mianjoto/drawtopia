@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    purge: [],
-    darkMode: false, // or 'media' or 'class'
-    theme: {
-      extend: {},
+  corePlugins: {
+    preflight: false,
+  },
+  purge: [],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {
       colors: {
         'primary-color': '#8077fe',
         'secondary-color': '#6b63c9',
@@ -11,10 +14,10 @@ module.exports = {
         'black-blue': '#383651',
         'dark-grey': '#27242c',
       }
-    },
-    variants: {
-      extend: {},
-    },
-    plugins: [],
-  }
-  
+    }
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}

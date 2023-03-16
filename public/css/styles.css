@@ -2,17 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 :root {
     --primary-color: #8077fe;
     --secondary-color: #6b63c9;
     --tertiary-color: #49467d;
     --black-blue-color: #383651;
     --dark-gray-color: #27242c;
+    --dark-gray-color-50: #27242c50;
 }
 
-body {
+body, label, input {
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
@@ -73,18 +72,24 @@ a:hover {
     color: var(--primary-color) !important;
 }
 
-button {
+
+input[type=submit],
+button[type=submit] {
+    color: white !important;
     background-color: var(--secondary-color) !important;
-    color: var(--tertiary-color) !important;
     border: none !important;
     font-size: 1rem !important;
     font-weight: 500 !important;
-    text-transform: uppercase !important;
     transition: background-color 0.2s ease-in-out !important;
 }
 
-button:hover {
+input[type=submit]:hover,
+button[type=submit]:hover {
     background-color: var(--primary-color) !important;
+}
+
+input[type="text"] {
+    border: 1px solid var(--primary-color);
 }
 
 .container {
