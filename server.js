@@ -23,4 +23,5 @@ app.set("view engine", "ejs")
 app.use('/', chatroomRouter)
 app.use('/welcome', welcomeRouter)
 
+console.log("Drawtopia listening on https://localhost:" + 3000);
 app.listen(3000)

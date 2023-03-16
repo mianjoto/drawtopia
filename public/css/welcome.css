@@ -11,7 +11,7 @@ body::before {
 }
 
 body {
-    background: url('/public/img/welcome-background.jpg') no-repeat;
+    background: url('/img/welcome-background.jpg') no-repeat;
     background-size: cover;
 }
 
