@@ -11,9 +11,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body class="h-screen w-screen grid place-items-center bg-primary-color bg-opacity-100">
+<body class="h-screen w-screen grid place-items-center">
     <div id="welcome-card" class="flex flex-col justify-center items-center rounded-lg p-4 bg-white drop-shadow-md">
-        <img src="img/logo.png" alt="Drawtopia">
+        <img src="/img/drawtopia-logo.svg" alt="Drawtopia" class="w-[400px] h-auto p-5">
+        
         <div id="form-container" class="pb-5">
             <form action="/welcome/setUsername" method="post">
                 <input type="text" name="username" id="username" autocomplete="off" placeholder="enter a nickname" minlength="1" maxlength="16"
