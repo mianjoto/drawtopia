@@ -1,6 +1,7 @@
 const canvasContainer = document.getElementById('canvas-container');
 const canvas = document.getElementById('canvas');
 const toolbar = document.getElementById('toolbar');
+const send = document.getElementById('send')
 const ctx = canvas.getContext('2d');
 const sendMessageButton = document.getElementById('send')
 const imageLink = document.createElement('a');
@@ -14,7 +15,7 @@ console.log("ratio=" + scribbleRatio)
 
 let color = "black";
 let isPainting = false;
-let lineWidth = 5;
+let lineWidth = 1;
 
 let undo_array = [];
 let index = -1;
@@ -58,7 +59,7 @@ canvas.addEventListener("touchend", stop);
 toolbar.addEventListener("change", changecolor);
 toolbar.addEventListener("click", clickEventHandler);
 
-sendMessageButton.addEventListener("click", sendMessage)
+send.addEventListener("click", sendMessage)
 
 function start(event)
 {
@@ -119,27 +120,27 @@ function clickEventHandler(event)
 
     if (event.target.id === "size1")
     {
-        lineWidth = 5;
+        lineWidth = 1;
     }
 
     if (event.target.id === "size2")
     {
-        lineWidth = 10;
+        lineWidth = 3;
     }
 
     if (event.target.id === "size3")
     {
-        lineWidth = 20;
+        lineWidth = 5;
     }
 
     if (event.target.id === "size4")
     {
-        lineWidth = 35;
+        lineWidth = 10;
     }
 
     if (event.target.id === "size5")
     {
-        lineWidth = 50;
+        lineWidth = 20;
     }
 
     if (event.target.id === "eraser")
