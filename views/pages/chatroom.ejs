@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Drawtopia</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/chatroom.css">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Inter:wght@700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    module.exports = {
+      purge: [],
+      darkMode: false, // or 'media' or 'class'
+      theme: {
+        extend: {},
+        colors: {
+          'primblue': '#8077fe',
+          '2ndblue': '#6b63c9',
+          '3rdblue': '#49467d',
+          'blackblue': '#383651',
+          'darkgrey': '#27242c',
+        }
+      },
+      variants: {
+        extend: {},
+      },
+      plugins: [],
+    }
+  </script>
+
+  <title>Drawtopia - {SERVERNAME}</title>
+</head>
+
+<body class="overflow-hidden">
+  <div class="h-screen w-screen divide-x-4 grid grid-cols-[minmax(50px,_1fr)_minmax(350px,_4fr)_minmax(50px,_1fr)] grid-rows-1">
+    <section id="toolbar-window">
+      <div id="toolbar" class="h-full flex flex-col justify-end items-end flex-1 pr-3 pb-5">
+        <a id="pen" class="toolbar-icon mt-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
+          </svg>
+        </a>
+        <a id="eraser" class="toolbar-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" class="w-6 h-6" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 122.88 103.38" style="enable-background:new 0 0 122.88 103.38" xml:space="preserve">
+            <style type="text/css">
+              .st0 {
+                fill-rule: evenodd;
+                clip-rule: evenodd;
+              }
+            </style>
+            <g>
+              <path class="st0" d="M27.66,93.53h32.49l9.1-9.08c1.4-1.4,1.41-3.7,0.01-5.1l-27.02-27.1c-1.4-1.4-3.7-1.41-5.1-0.01L14.3,75.03 c-1.41,1.4-1.41,3.7-0.01,5.1L27.66,93.53L27.66,93.53z M71.03,93.53h51.84v9.85H61.16H50.28h-12.8H25.7h-0.35L1.05,79.01 c-1.4-1.4-1.4-3.7,0.01-5.1L74.11,1.05c1.41-1.4,3.7-1.4,5.1,0.01l39.62,39.72c1.4,1.4,1.4,3.7-0.01,5.1L71.03,93.53L71.03,93.53z" />
+            </g>
+          </svg>
+        </a>
+      </div>
+
+    </section>
+    <main id="chatroom-window">
+      <div id="header" class="relative">
+        <div class="sticky top-0 z-50 bg-indigo-200">
+          <header class="flex items-center justify-between px-4 h-14">
+            <h2 class="text-lg font-semibold">{SERVERNAME}</h2>
+            <img src="img/drawtopia-logo.svg" alt="Drawtopia" class="h-7 w-auto">
+          </header>
+        </div>
+      </div>
+      <div id="messages-container" class="divide-y-5 h-screen flex flex-col gap-2 overflow-y-scroll no-scrollbar relative">
+        <%#- include('../partials/message') %>
+        <div class="canvas absolute bottom-14 left-0 w-full">
+          <%- include('../partials/canvas') %>
+        </div>
+      </div>
+
+    </main>
+    <div id="memberlist-window"></div>
+  </div>
+</body>
+
+</html>

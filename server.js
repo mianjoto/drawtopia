@@ -16,10 +16,12 @@ app.use(session({
 }))
 
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 app.use(express.static("public"))
 app.set("view engine", "ejs")
 
 app.use('/', chatroomRouter)
 app.use('/welcome', welcomeRouter)
 
+console.log("Drawtopia listening on http://localhost:" + 3000);
 app.listen(3000)

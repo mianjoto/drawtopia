@@ -2,66 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-/* ROOT STYLES */
 :root {
     --primary-color: #8077fe;
     --secondary-color: #6b63c9;
     --tertiary-color: #49467d;
-    --black-blue: #383651;
-    --dark-grey: #27242c;
-    --dark-grey50: rgb(39, 36, 44, 0.5);
-    --white-color: #ffffff; 
+    --black-blue-color: #383651;
+    --dark-gray-color: #27242c;
+    --dark-gray-color-50: #27242c50;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+body, label, input {
+    font-family: 'IBM Plex Sans', sans-serif;
 }
-/*'Inter', sans-serif;*/
-h1, h2 {
+
+h1,
+h2,
+.logo {
     font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    color: var(--dark-grey);
-    line-height: 1.3rem;
+    color: var(--primary-color);
+}
+
+h3,
+h4,
+h5,
+h6,
+a,
+p {
+    font-family: 'IBM Plex Sans', sans-serif !important;
+    color: var(--black-blue-color) !important;
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 4rem !important;
+    font-weight: 700 !important;
 }
 
 h2 {
-    font-size: 2rem;
-    margin: 1rem 0;
-}
-
-h3, h4, h5, h6, p {
-    font-family: 'Inter', sans-serif;
-}
-
-h3, h4, h5 {
-    font-weight: 500;
-}
-
-h6, p {
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
+    font-weight: 500 !important;
 }
 
 h4 {
-    font-size: 1.25rem;
+    font-size: 1.25rem !important;
+    font-weight: 500 !important;
 }
 
 h5 {
-    font-size: 1rem; 
+    font-size: 1rem !important;
+    font-weight: 500 !important;
 }
 
-body{
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
-  }
+h6 {
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+}
+
+a {
+    color: var(--secondary-color) !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease-in-out !important;
+}
+
+a:hover {
+    color: var(--primary-color) !important;
+}
+
+
+input[type=submit],
+button[type=submit] {
+    color: white !important;
+    background-color: var(--secondary-color) !important;
+    border: none !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    transition: background-color 0.2s ease-in-out !important;
+}
+
+input[type=submit]:hover,
+button[type=submit]:hover {
+    background-color: var(--primary-color) !important;
+}
+
+input[type="text"] {
+    border: 1px solid var(--primary-color);
+}
+
+.container {
+    background-color: var(--dark-gray-color) !important;
+}
+
+.border {
+    border: 1px solid var(--black-blue-color) !important;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}

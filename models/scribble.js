@@ -9,12 +9,12 @@ const Scribble = sequelize.define('scribble', {
         allowNull:false,
         primaryKey:true
     },
-    chatroom: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     image: {
         type: Sequelize.BLOB('medium'),
+        allowNull: false
+    },
+    chatroom: {
+        type: Sequelize.STRING,
         allowNull: false
     },
     author_name: {

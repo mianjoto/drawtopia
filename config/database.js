@@ -8,7 +8,8 @@ const sequelize = new Sequelize(
     env.DATA_BASE_USER,
     env.DATA_BASE_PASSWORD, {
         dialect: 'mysql',        
-        host: env.DATA_BASE_HOST
+        host: env.DATA_BASE_HOST,
+        logging: false
     }
 );
 
