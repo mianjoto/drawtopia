@@ -56,9 +56,7 @@ canvas.addEventListener("touchstart", start);
 canvas.addEventListener("touchmove", draw);
 canvas.addEventListener("touchend", stop);
 
-toolbar.addEventListener("change", changecolor);
 toolbar.addEventListener("click", clickEventHandler);
-
 send.addEventListener("click", sendMessage)
 
 function start(event)
@@ -104,10 +102,11 @@ function stop(event)
     }
 }
 
-function changecolor(event)
+function changecolor(element)
 {
-    color = event.target.value;
-    ctx.strokeStyle = event.target.value;
+    color = element.style.background;
+    console.log(color)
+    ctx.strokeStyle = element.style.background;
 }
 
 function clickEventHandler(event)
