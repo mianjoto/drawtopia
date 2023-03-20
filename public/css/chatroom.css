@@ -27,3 +27,15 @@ svg{
     height: 100%;
 }
 
+section{
+      /* for the slide/ fade in animation */
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out
+}
+
+/* also for the slide/ fade in animation */
+.slide-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}

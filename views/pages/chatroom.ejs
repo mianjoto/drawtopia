@@ -8,36 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- STYLESHEETS -->
-  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/chatroom.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Inter:wght@700&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    module.exports = {
-      purge: [],
-      darkMode: false, // or 'media' or 'class'
-      theme: {
-        extend: {},
-        colors: {
-          'primblue': '#8077fe',
-          '2ndblue': '#6b63c9',
-          '3rdblue': '#49467d',
-          'blackblue': '#383651',
-          'darkgrey': '#27242c',
-        }
-      },
-      variants: {
-        extend: {},
-      },
-      plugins: [],
-    }
-  </script>
 
   <title>Drawtopia - {SERVERNAME}</title>
 </head>
@@ -143,6 +121,14 @@
     </main>
     <div id="memberlist-window"></div>
   </div>
+  <!-- for the slide-up/fade/transition -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          document.body.classList.add('slide-up');
+        }, 100);
+      });
+    </script>
 </body>
 
 </html>
