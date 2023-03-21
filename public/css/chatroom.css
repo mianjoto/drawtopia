@@ -1,5 +1,25 @@
+svg{
+    pointer-events: none;
+}
+
 .message__username>h3 {
     color: var(--black-blue-color) !important;
+}
+
+.color-toolbar{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.color-palette{
+    height: 1em;
+    width: 1em;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid rgb(105, 101, 101);
 }
 
 #canvas {
@@ -13,6 +33,7 @@ section{
       transform: translateY(50px);
       transition: opacity 1s ease-in-out, transform 1s ease-in-out
 }
+
 /* also for the slide/ fade in animation */
 .slide-up {
     opacity: 1 !important;
