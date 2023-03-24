@@ -187,10 +187,6 @@ function sendMessage(event)
 
     const data = {
         image: imageLink.href,
-        chatroom: 'myChatroom',
-        author_name: 'John Doe',
-        latitude: 42.1234,
-        longitude: -71.5678,
     };
 
     fetch('/sendMessage', {
@@ -201,7 +197,7 @@ function sendMessage(event)
         .then(res => res.json())
         .then(data =>
         {
-            console.log(data.scribble);
+            console.log("Successfully sent scribble to server.");
         })
         .catch(err => console.error(err));
 }
