@@ -8,8 +8,9 @@
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/welcome.css">
-    <script src="https://cdn.tailwindcss.com"></script>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/welcome.js"></script>
 </head>
 <body class="h-screen w-screen grid place-items-center">
     <div id="welcome-card" class="flex flex-col justify-center items-center rounded-lg p-4 bg-white drop-shadow-md">
@@ -29,14 +30,5 @@
         </div>
         <small><a href="/TODO:IMPLEMENT">Why does Drawtopia require my location?</a></small> 
     </div>
-
-    <!-- for the slide-up/fade/transition -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          setTimeout(function() {
-            document.getElementById("welcome-card").classList.add('slide-up');
-          }, 100);
-        });
-      </script>
 </body>
 </html>

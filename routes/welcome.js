@@ -14,6 +14,11 @@ router
         req.session.serverName = req.body['serverName'];
         res.redirect('/')
     })
+    .post('/saveLocation', (req, res) => {
+        req.session.longitude = req.body.longitude;
+        req.session.latitude = req.body.latitude;
+        res.redirect('/')
+    })
 
 function usernameIsValid(username) {
     const MIN_USERNAME_LENGTH = 3;
