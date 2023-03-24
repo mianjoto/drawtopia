@@ -23,16 +23,16 @@ router.post('/sendMessage', (req, res) => {
     const image = req.body.image;
     const chatroom = req.session.serverName;
     const author_name = req.session.username;
-    const latitude = 42.1234;  // placeholder
-    const longitude = -71.5678;  // placeholder
+    const longitude = req.session.longitude;
+    const latitude = req.session.latitude;
   
     try {
       const scribble = new Scribble({
         image,
         chatroom,
         author_name,
-        latitude,
         longitude,
+        latitude,
       });
 
       scribble.save();
