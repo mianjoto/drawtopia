@@ -40,15 +40,31 @@ console.log("scaley = " + scaleY)
 // adjust the context's scale
 ctx.scale(scaleX, scaleY);
 
+let cursorPreview = document.createElement('div');
+cursorPreview.style.width = (lineWidth + 4) + 'px';
+cursorPreview.style.height = (lineWidth + 4) + 'px';
+cursorPreview.style.borderRadius = '50%';
+cursorPreview.style.backgroundColor = 'black';
+cursorPreview.style.position = 'relative';
+cursorPreview.style.display = 'none';
+cursorPreview.style.zIndex = '10';
+
+canvas.appendChild(cursorPreview);
+
+canvasContainer.style.position = 'relative';
+canvas.style.zIndex = '1'
+
 // reset the context's translation
 ctx.translate(0, 0);
 
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
 
-
 canvas.addEventListener("mousedown", start);
 canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("mousemove", displayCursor);
+canvas.addEventListener("mouseenter", () => cursorPreview.style.display = 'block');
+canvas.addEventListener("mouseleave", () => cursorPreview.style.display = 'none');
 canvas.addEventListener("mouseup", stop);
 canvas.addEventListener("mouseout", stop);
 
@@ -58,6 +74,17 @@ canvas.addEventListener("touchend", stop);
 
 toolbar.addEventListener("click", clickEventHandler);
 send.addEventListener("click", sendMessage)
+
+function displayCursor(event)
+{
+    let rect = canvas.getBoundingClientRect();
+    const correctedX = (event.clientX - rect.left) / scaleX;
+    const correctedY =  (event.clientY - rect.top) / scaleY;
+
+    cursorPreview.style.left = (correctedX) + 'px';
+    cursorPreview.style.top = (correctedY) + 'px';
+    cursorPreview.style.display = 'block';
+}
 
 function start(event)
 {
