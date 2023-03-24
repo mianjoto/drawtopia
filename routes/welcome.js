@@ -11,7 +11,7 @@ router
     })
     .post('/setUsername', (req, res) => {
         req.session.username = req.body.username;
-        console.log(req.body)
+        req.session.serverName = req.body['serverName'];
         res.redirect('/')
     })
 

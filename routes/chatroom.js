@@ -8,10 +8,14 @@ sequelize.sync()
 
 router.get("/", (req, res) => {
     let username = req.session.username;
-    if (!username) {
+    let serverName = req.session.serverName;
+    if (!username || !serverName) {
         res.redirect('/welcome')
     } else {
-        res.render("pages/chatroom", { username : username })
+        res.render("pages/chatroom", {
+          username,
+          serverName
+        })
     }
 })
 
