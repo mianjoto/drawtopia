@@ -8,17 +8,24 @@ sequelize.sync()
 
 router.get("/", (req, res) => {
     let username = req.session.username;
-    if (!username) {
+    let serverName = req.session.serverName;
+    if (!username || !serverName) {
         res.redirect('/welcome')
     } else {
-        res.render("pages/chatroom", { username : username })
+        res.render("pages/chatroom", {
+          username,
+          serverName
+        })
     }
 })
 
 router.post('/sendMessage', (req, res) => {
-    const { image, chatroom, author_name, latitude, longitude } = req.body;
-    
-    console.log(image, chatroom, author_name, latitude, longitude);
+    const image = req.body.image;
+    const chatroom = req.session.serverName;
+    const author_name = req.session.username;
+    const latitude = 42.1234;  // placeholder
+    const longitude = -71.5678;  // placeholder
+  
     try {
       const scribble = new Scribble({
         image,
@@ -29,8 +36,9 @@ router.post('/sendMessage', (req, res) => {
       });
 
       scribble.save();
-      
-      res.status(201).json({ success: true, scribble });
+      const successMessage = `Successfully saved scribble to database from author ${author_name} in the ${chatroom} chatroom.`;
+      res.status(201).json({ success: true, message: successMessage});
+      console.log(successMessage);
     } catch (err) {
       console.error(err);
       res.status(500).json({ success: false, message: 'Failed to create scribble.' });
