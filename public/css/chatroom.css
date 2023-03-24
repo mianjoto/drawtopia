@@ -11,6 +11,7 @@ svg{
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 5px;
+    z-index: 3;
     margin-bottom: 15px;
 }
 
@@ -25,17 +26,4 @@ svg{
 #canvas {
     width: 100%;
     height: 100%;
-}
-
-section{
-      /* for the slide/ fade in animation */
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s ease-in-out, transform 1s ease-in-out
-}
-
-/* also for the slide/ fade in animation */
-.slide-up {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
 }
