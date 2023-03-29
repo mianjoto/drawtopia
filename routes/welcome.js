@@ -3,9 +3,12 @@ const router = express.Router()
 
 router
     .get('/',(req, res) => {
-        if (!usernameIsValid(req.session.username)) {
-            res.render("pages/welcome")
+        if (!usernameIsValid(req.session.username) || !locationIsSaved()) {
+            res.render('pages/welcome')
         } else {
+            console.log('user' + req.session.username)
+            console.log("la"+req.session.latitude);
+            console.log("lo"+req.session.longitude);
             res.redirect('/')
         }
     })
@@ -31,6 +34,13 @@ function usernameIsValid(username) {
     } else {
         return false;
     }
+}
+
+function locationIsSaved() {
+    if (req.session.latitude === undefined || req.session.longitude === undefined)
+        return false;
+    else
+        return true;
 }
 
 // SOURCE: https://stackoverflow.com/questions/4434076/best-way-to-alphanumeric-check-in-javascript

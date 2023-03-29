@@ -13,10 +13,26 @@ body::before {
 body {
     background: url('/img/welcome-background.jpg') no-repeat;
     background-size: cover;
-    
 }
 
-body > div {
+#location-prompt-container {
+    background-color: hsla(0, 0%, 0%, 0.7);
+    transition: opacity 150ms ease-in-out;
+}
+
+#location-reason {
+    background-color: var(--dark-gray-color);
+}
+
+#location-reason h2 {
+    font-size: 1.6rem !important;
+}
+#location-reason > p {
+    color: white !important;
+}
+
+
+#welcome-card {
     /* also for the slide/ fade in animation */
     opacity: 0;
     transform: translateY(50px);

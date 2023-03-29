@@ -1,6 +1,6 @@
 
 slideUpCard();
-
+let locationPromptContainer = document.querySelector('#location-prompt-container');
 
 const success = (position) => {
     const latitude = position.coords.latitude;
@@ -11,18 +11,35 @@ const success = (position) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
     })
-        .then(data =>
+    .then(data =>
         {
             console.log(`Successfully saved user's coordinates: Longitude: ${longitude}, Latitude: ${latitude}`);
+            locationPromptContainer.classList.remove('opacity-100');
+            locationPromptContainer.classList.add('opacity-0');
+            locationPromptContainer.classList.add('hidden');
         })
         .catch(err => console.error(err))
+    }
+    
+const failure = (error) => {
+    console.log(error.code)
+    if (error.code === 1) {
+        locationPromptContainer.classList.remove('opacity-0');
+        locationPromptContainer.classList.remove('hidden');
+        locationPromptContainer.classList.add('opacity-100');
+        console.log("CANNOT GET LOCATION")
+        
+        // TODO: Prompt user again with an HTML element popup
+        // Allow them to enter their location through a location API
+    }
 }
 
-const failure = () => {
-    // TODO: Prompt user again with an HTML element popup
-}
+promptLocation();
 
-navigator.geolocation.getCurrentPosition(success, failure);
+function promptLocation()
+{
+    navigator.geolocation.getCurrentPosition(success, failure);
+}
 
 
 function slideUpCard()
