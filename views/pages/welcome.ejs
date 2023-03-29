@@ -8,35 +8,40 @@
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/welcome.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <script src="/js/welcome.js" defer></script>
 </head>
-<body class="h-screen w-screen grid place-items-center">
-    <div id="welcome-card" class="flex flex-col justify-center items-center rounded-lg p-4 bg-white drop-shadow-md">
-        <img src="/img/drawtopia-logo.svg" alt="Drawtopia" class="w-[400px] h-auto p-5">
-        
-        <div id="form-container" class="pb-5">
-            <form action="/welcome/setUsername" method="post">
-                <input type="text" name="username" id="username" autocomplete="off" placeholder="enter a nickname" minlength="1" maxlength="16"
-                class="my-3 px-2 py-1 rounded-sm"
-                </div>
-                <div id="servers-container" class="flex flex-col justify-center items-center gap-2">
-                    <input type="submit" value="server-name-1" name="serverName" class="w-full py-4 rounded-md font-semibold">
-                    <input type="submit" value="server-name-2" name="serverName" class="w-full py-4 rounded-md font-semibold">
-                    <input type="submit" value="server-name-3" name="serverName" class="w-full py-4 rounded-md font-semibold">
-                </div>
-            </form>
-        </div>
-        <small><a href="/TODO:IMPLEMENT">Why does Drawtopia require my location?</a></small> 
-    </div>
+<body class="h-screen w-screen overflow-hidden">
+    <section id="location-prompt-container" class="h-full w-full grid place-items-center opacity-0 hidden">
+        <div id="location-reason" class="flex absolute flex-col z-10 justify-center items-center rounded-lg px-16 py-8 drop-shadow-sm">
+            <img src="/img/drawtopia-logo.svg" alt="Drawtopia" class="w-[400px] h-auto p-5">
+            <h2 class="">Please allow location permissions</h2>
+            <p class="text-white max-w-md text-center">Drawtopia needs your location to give you access to chatrooms near you and allow you to chat with nearby artists.</p>
+            <img id="allow-location-tutorial" src="/img/allow-location-tutorial.jpg" alt="How to allow location" class="max-w-md h-auto py-4 pointer-events-none">
+            <p class="text-white pb-4">Once you've allowed location permissions, refresh the page.</p>
+            <small><a href="/TODO:IMPLEMENT">Why does Drawtopia require my location?</a></small> 
 
-    <!-- for the slide-up/fade/transition -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          setTimeout(function() {
-            document.getElementById("welcome-card").classList.add('slide-up');
-          }, 100);
-        });
-      </script>
+        </div>
+    </section>
+    <div id="welcome-card-container" class="grid place-items-center w-full h-full">
+        <div id="welcome-card" class="flex flex-col justify-center items-center rounded-lg p-4 bg-white drop-shadow-md">
+            <img src="/img/drawtopia-logo.svg" alt="Drawtopia" class="w-[400px] h-auto p-5">
+            
+            <div id="form-container" class="pb-5">
+                <form action="/welcome/setUsername" method="post">
+                    <input type="text" name="username" id="username" autocomplete="off" placeholder="enter a nickname" minlength="1" maxlength="16"
+                    class="my-3 px-2 py-1 rounded-sm"
+                    </div>
+                    <div id="servers-container" class="flex flex-col justify-center items-center gap-2">
+                        <input type="submit" value="server-name-1" name="serverName" class="w-full py-4 rounded-md font-semibold">
+                        <input type="submit" value="server-name-2" name="serverName" class="w-full py-4 rounded-md font-semibold">
+                        <input type="submit" value="server-name-3" name="serverName" class="w-full py-4 rounded-md font-semibold">
+                    </div>
+                </form>
+            </div>
+            <small><a href="/TODO:IMPLEMENT">Why does Drawtopia require my location?</a></small> 
+        </div>
+    </div>
 </body>
 </html>
